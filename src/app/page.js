@@ -3,10 +3,18 @@ import styles from "./page.module.css";
 import { useState } from 'react';
 
 export default function Home() {
-  const [nomeBtn, setNomeBtn] = useState('Abrir');
+  const [ btnClique, setBtnClique ] = useState(false);
+  const [ nomeBtn, setNomeBtn ] = useState('Abrir');
 
   function mudarNomeBtn() {
-    setNomeBtn('Fechar');
+    if(btnClique === true) {
+      setBtnClique(false);
+      setNomeBtn('Abrir');
+    } else {
+      setBtnClique(true);
+      setNomeBtn('Fechar');
+    }
+    
   }
 
   return (
